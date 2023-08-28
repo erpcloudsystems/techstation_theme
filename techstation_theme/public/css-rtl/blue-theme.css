@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai&display=swap');
+@import url("/assets/techstation_theme/css/blue-theme.css");
+body {
+    font-family: 'Almarai', sans-serif;
+    overflow-x: hidden;
+}
+
+.form-links .document-link .document-link-badge, .form-links .document-link .report-link-badge {
+    font-size: 14px;
+}
+.control-label, .grid-heading-row {
+    font-size: 14px;
+}
+.layout-side-section .sidebar-label {
+    font-size: 14px;
+}
+.layout-side-section .form-sidebar .modified-by, .layout-side-section .form-sidebar .created-by, .layout-side-section .form-sidebar .pageview-count {
+    font-size: 14px;
+}

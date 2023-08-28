@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#e4e4e4">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#e4e4e4">
+  <meta name="robots" content="noindex">
+  <meta name="googlebot" content="noindex">
+
+  <meta name="author" content="Techstation" />
+  <meta name="description" content="Techstation ERP." />
+
+  <!-- Mobile Stuff -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/assets/techstation_theme/css/bootstrap.css" />  
+  <!-- CSS Style File -->
+  <link rel="stylesheet" href="/assets/techstation_theme/css/login-pages/reset.css" />
+  <!-- Rtl File -->
+  <script>
+    window.frappe = {};
+    frappe.ready_events = [];
+    frappe.ready = function(fn) {
+     frappe.ready_events.push(fn);
+   }
+   window.dev_server = {{ dev_server }};
+ </script>
+
+ <title>{% if company %}{{ company  }} {% endif %}</title>
+</head>
+
+<!-- Body -->
+<body>
+  <!-- content -->
+  <div class="content">
+    <div class="container">
+      <!-- main contain -->
+      <div class="m-c">
+        <form action="post" class="form-forgot">
+
+          <div class="logo-c text-center">
+            <img src="/assets/techstation_theme/images/login.png" class="img-fluid logo" alt="">
+          </div>
+
+          <!-- head -->          
+          <div class="head text-center">            
+            <h5>طلب تغيير كلمة المرور</h5>
+            <p>أدخل البريد الإلكتروني الذي تستخدمه لهذا النظام ، وسنساعدك في إنشاء كلمة مرور جديدة</p>            
+          </div> 
+
+          <div class="alert alert-danger error_user" style="display:none;" role="alert">
+					<strong>!نعتذر</strong>.ادخل البريد الالكتروني 
+         </div>
+         <div class="alert alert-danger text-left error_active" style="display:none;" role="alert">
+					<strong>!نعتذر</strong>.المستخدم غير نشط
+        </div>
+
+        <div class="alert alert-success success_reset" style="display:none;" role="alert">
+         تم إرسال تعليمات إعادة تعيين كلمة المرور إلى بريدك الإلكتروني
+       </div>
+
+       <!-- body -->
+       <div class="body">
+        <!-- input group -->
+        <div class="input-g email">
+          <input type="text" id="forgot_email" autocomplete="off" placeholder="أدخِل عنوان البريد الإلكتروني">              
+        </div>
+        <!-- button group -->
+        <div class="btn-g">
+          <button type="button"class="btn-next-reset">التالي</button>
+        </div>
+      </div>
+      <!-- user -->
+      <div class="user text-center" style="display:none;">
+        <img src="/assets/techstation_theme/images/user.png" class="user-img img-fluid" alt="">
+        <p class="name mx-auto"></p>
+        <button class="btn-a reset-btn">إعادة تعيين كلمة المرور الآن</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="company_name text-center">            
+		<p>جميع الحقوق محفوظة, <a href="https://www.techstation.com.eg/ar/" target="_blank">تك ستيشن</a></p>    
+  </div>
+
+</div>
+</div>
+<!-- content -->
+<!-- Start Scripts -->
+<script type="text/javascript"
+src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.slim.js"></script>
+<script type="text/javascript"
+src="/assets/js/frappe-web.min.js"></script>
+<script type="text/javascript"
+src="/assets/frappe/js/lib/bootstrap.min.js"></script>
+
+{%- if js_globals is defined %}
+<script>
+  {%- for key, value in js_globals.iteritems() %}
+  window.{{ key }} = "{{ value[0] }}";
+  {%- endfor -%}
+</script>
+{% endif -%}
+
+<script>{% include "public/js/popper.js" %}</script>
+<script>{% include "templates/includes/login/manage.js" %}</script>
+<script>{% include "templates/includes/login/script-manage.js" %}</script>
+
+<script>{% include "templates/includes/protection/backspace.js" %}</script>
+{% include "techstation_theme/templates/includes/protection.html" %}
+
+<!-- End Scripts -->
+</body>
+<!-- Body -->
+
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar">
+<!-- Head -->
+<head>
+	<meta charset="utf-8" />
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#fff">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#e4e4e4">
+	<meta name="robots" content="noindex">
+	<meta name="googlebot" content="noindex">
+
+	<meta name="author" content="Techstation , info@techstation.com.eg">
+	<meta name="reply-to" content="help@techstation.com.eg">
+	<title>{% if company %}{{ company  }} {% endif %}</title>
+	<meta name="title" content="Techstation Software">
+	<meta name="subtitle" content="Techstation Integrated Cloud Applications and Platform Services">
+	<meta name="description" content="ERP software supports manufacturing, distribution, retail, trading, services, gym, education, healthcare">
+
+	<!-- Favicon & logo -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/logo.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/logo.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/logo.png">
+	<link rel="manifest" href="/img/favicon/site.webmanifest">
+	<link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+
+	<link rel="logo" type="image/svg" href="https://www.techstation.com.eg/img/techstation-logo.svg">
+	<link rel="image_src" href="https://www.techstation.com.eg/img/techstation-logo.svg" type="image/svg">
+	<meta itemprop="image" content="https://techstation.com.eg/img/techstation-logo.png">
+	<meta name="twitter:image" content="https://techstation.com.eg/img/techstation-logo.png">
+
+	<meta property="og:url" content="https://techstation.com.eg" /> 
+	<meta property="og:title" content="Techstation | Manage Portal" /> 
+	<meta property="og:site_name" content="Techstation Platform Services">
+	<meta property="og:image" content="https://techstation.com.eg/img/techstation-logo.png" />
+	<meta property="og:image:secure_url" content="https://techstation.com.eg/img/techstation-logo.png" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta property="og:image:width" content="750" />
+	<meta property="og:image:height" content="750" />
+	<meta property="og:image:alt" content="Techstation Integrated Cloud Applications and Platform Services" />
+	<meta property="og:description" content="ERP software supports manufacturing, distribution, retail, trading, services, education, healthcare" />
+
+	<!-- Mobile Stuff -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	
+	<!-- Bootstrap CSS -->
+	<style>
+
+		{% include "public/css/login-pages/bootstrap.css" %}
+		{% include "public/css/login-pages/index.css" %}
+
+	</style>
+	<script>
+		window.frappe = {};
+		frappe.ready_events = [];
+		frappe.ready = function(fn) {
+			frappe.ready_events.push(fn);
+		}
+		window.dev_server = {{ dev_server }};
+	</script>
+
+</head>
+
+<body>
+	
+	{% if not terminate %}
+	   <div class="content">
+		<div class="container">
+
+					<!-- Notice of renewal date -->
+					{% if expiry %}
+					   <div class="alert alert-renewal">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+		                             <div class="alert-overlay">
+					       <div class="alert alert-warning">
+						<strong>تنبية هام</strong> <br> تاريخ تجديد الاشتراك: <strong>{{ expiry }}</strong> 
+<br>
+						يرجى <a href="https://www.techstation.com.eg/contact" target="_blank">تجديد</a> الإشتراك قبل الموعد المحدد لتجنب إيقاف حسابك السحابي.<br>
+					       </div>
+					     </div>
+					   </div>
+					{% endif %}
+
+
+        <!-- Updates -->
+	{% include "techstation_theme/templates/includes/quick-notices/login/ar.html" %}
+        <!-- Updates End -->
+
+
+			<div class="content-login">
+
+<form class="mx-auto text-center login-form" onsubmit="return fromsubmit()">
+				<div class="">
+					<img src="/assets/techstation_theme/img/logo.png" class="img-fluid" alt="logo">              
+				</div>
+
+				<!-- head -->          
+				<div class="head text-center">            
+					<h4>تسجيل الدخول</h4>
+					<p> {% if company %}{{ company  }} {% endif %} </p>            
+				</div> 
+
+				<!-- alert -->
+				<div class="alert alert-danger text-left error_user" style="display:none;" role="alert">
+					<strong>إسم المستخدم أو البريد الإلكتروني غير صحيح</strong>  
+				</div>
+				
+				<!-- alert -->				
+				<div class="alert alert-danger text-left error_active" style="display:none;" role="alert">
+					<strong>هذا الحساب معطل</strong> 
+				</div>
+
+				<div class="i-g mail">
+					<input type="text" id="login_email" placeholder="أدخل بريدك الإلكتروني">
+				</div>
+
+				<!--<div class="i-g user" style="display:none;">
+					<div class="email"></div>
+					<button class="ch-btn-change">Change</button>
+				</div>-->
+
+				
+				<div class="i-g pass-f" style="display:none;">
+					<input id="login_password" type="password" placeholder="Pass">
+					<button type="button" class="pass-btn">إظهار</button>
+				</div>
+
+				<div class="i-g next">
+					<button type="button" class="l-b btn-next">التالي</button>
+				</div>      
+
+				<div class="i-g login">
+					<button type="button" class="l-b btn-login" style="display:none;">تسجيل الدخول</button>
+				</div>      
+
+				<!--<div class="i-g">
+					<a href="/reset" class="t-a" target="_blank">نسيت كلمة المرور؟</a>
+				</div>    -->  
+			</form>
+
+			</div>
+
+
+		</div>
+	    </div>
+	{% endif %}
+
+        <!-- alert subscription status -->
+		{% if terminate %}
+	<div class="subscription_status text-center">    
+		
+                  <!-- All services have been suspended -->
+		  <div class="alert alert-danger text-left">
+			<strong>عذراً</strong> <br> هذا الحساب تم <strong>تعليقه</strong> 
+		  </div>
+
+	</div>
+	{% endif %}
+
+	<!-- login footer -->
+	{% if not terminate %}       
+	<div class="login-footer">
+	     <div class="container">
+	     <div class="footer-link">
+		<ul class="m-0 p-0">
+		<!--<li><a href="/en/manage.html" target="_blank">English</a></li> -->
+
+		<li><a href="https://www.youtube.com/playlist?list=PLmMctqiPkOj-yzwDmEFZhWoyh7wHar-KN&disable_polymer=true" target="_blank">الفيديوهات التعليمية</a></li> 
+		<li><a href="" >-</a></li>
+		<li><a href="https://www.techstation.com.eg" target="_blank">الدعم الفني</a></li>
+		</ul>
+	      </div>
+	     <div class="copyright">
+		<p> Built on Frappe جميع الحقوق محفوظة, <a href="https://www.techstation.com.eg/" target="_blank"> تك ستيشن </a></p> 
+		</div>
+	     </div>
+	    </div>
+	{% endif %}
+
+	<script type="text/javascript"
+	src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.slim.js"></script>
+	<script type="text/javascript"
+	src="/assets/js/frappe-web.min.js"></script>
+	<script type="text/javascript"
+	src="/assets/frappe/js/lib/bootstrap.min.js"></script>
+
+	{%- if js_globals is defined %}
+	<script>
+		{%- for key, value in js_globals.iteritems() %}
+		window.{{ key }} = "{{ value[0] }}";
+		{%- endfor -%}
+	</script>
+	{% endif -%}
+
+	<script>{% include "public/js/popper.js" %}</script>
+	<script>{% include "templates/includes/login-ar/login.js" %}</script>
+	<script>{% include "templates/includes/login-ar/script-login.js" %}</script>
+
+        <!-- Start of LiveChat FB code -->
+        {% include "techstation_theme/templates/plugins/FBChat.html" %}
+        <!-- End of LiveChat FB code -->
+
+</body>
+<!-- Body -->
+</html>
+

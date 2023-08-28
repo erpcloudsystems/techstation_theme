@@ -1,0 +1,16 @@
+.footer-bottom-line {
+    display: none !important;
+}
+nav.navbar.navbar-light.bg-white.navbar-expand-lg.sticky-top.shadow-sm {
+    display: none !important;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #8d99a6;
+    border-color: #8d99a6;
+}
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #8191a2;
+    border-color: #8191a2;
+}
